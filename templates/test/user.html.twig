@@ -12,4 +12,21 @@
 
 {% endfor %}
 
+<h2> les données de l'utilisateur dont l'id est 2</h2>
+
+<p> {{ user1.email }} </p>
+<p> {{ user1.roles[0] }} </p>
+
+<h2> - les données de l'utilisateur dont l'email est maryam@exemple.com </h2>
+
+<p>  {{ maryamUser.id }} </p>
+
+<h2> - la liste des utilisateurs dont l'attribut roles contient le mot clé ROLE_USER, triée par ordre alphabétique d'email </h2>
+
+{% for user in roles %}
+
+<p>  {{ user.email }} </p>
+
+{% endfor %}
+
 {% endblock %}

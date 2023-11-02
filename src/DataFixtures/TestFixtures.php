@@ -245,7 +245,7 @@ class TestFixtures extends Fixture implements FixtureGroupInterface
             [
                 'dateDebutLocation' => new DateTime('2022-01-01'),
                 'dateFinLocation' => new DateTime ('2022-01-02'),
-                'prixTotal' => 100,
+                'prixTotal' => 129.99,
                 'client' => $client1,
             ],
         ];
@@ -405,6 +405,10 @@ class TestFixtures extends Fixture implements FixtureGroupInterface
             $fournisseurs = $repositoryFournisseur->findAll();
             $fournisseur1 = $repositoryFournisseur->find(2);
 
+            $reposositoryLocation = $this->manager->getRepository(Location::class);
+            $locations = $reposositoryLocation->findAll();
+            $location1 = $reposositoryLocation->find(2);
+
             // données statiques
 
             $datas = [
@@ -416,6 +420,7 @@ class TestFixtures extends Fixture implements FixtureGroupInterface
                     'couleur' => $couleur1,
                     'fournisseur' => $fournisseur1,
                     'categorie' => $categorie1,
+                    'location1' => $location1
                 ]
             ];
 
@@ -428,6 +433,7 @@ class TestFixtures extends Fixture implements FixtureGroupInterface
                 $robe->addCouleur($data['couleur']);
                 $robe->setFournisseur($data['fournisseur']);
                 $robe->setCategorie($data['categorie']);
+                $robe->addLocation($data['location1']);
 
                 $this->manager->persist($robe);
             }
@@ -442,6 +448,12 @@ class TestFixtures extends Fixture implements FixtureGroupInterface
                 $robe->setDescription($this->faker->text());
                 $robe->setPrix($this->faker->randomFloat(2, 70, 120));
                 $robe->setTaille($this->faker->randomElement($tailles));
+
+                $nbLocation = random_int(1, 3);
+                $shortlist = $this->faker->randomElements($locations, $nbLocation);
+                foreach ($shortlist as $location) {
+                    $robe->addLocation($location);
+                }
 
                 $nbCouleur = random_int(1, 3);
                 $shortlist = $this->faker->randomElements($couleurs, $nbCouleur);
