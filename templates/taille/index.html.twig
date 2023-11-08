@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Taille index{% endblock %}
+
+{% block body %}
+    <h1>Taille index</h1>
+
+    <a href="{{ path('app_taille_new') }}">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>DeletedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for taille in tailles %}
+            <tr>
+                <td>{{ taille.id }}</td>
+                <td>{{ taille.nom }}</td>
+                <td>{{ taille.createdAt ? taille.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ taille.updatedAt ? taille.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ taille.deletedAt ? taille.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_taille_show', {'id': taille.id}) }}">show</a>
+                    <a href="{{ path('app_taille_edit', {'id': taille.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

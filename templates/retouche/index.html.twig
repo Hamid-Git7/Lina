@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Retouche index{% endblock %}
+
+{% block body %}
+    <h1>Retouche index</h1>
+
+    <a href="{{ path('app_retouche_new') }}">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Robe</th>
+                <th>Retoucheur</th>
+                <th>DateRetouche</th>
+                <th>DateFinRetouche</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>DeletedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for retouche in retouches %}
+            <tr>
+                <td>{{ retouche.id }}</td>
+                <td>{{ retouche.robe }}</td>
+                <td>{{ retouche.retoucheur }}
+                <td>{{ retouche.dateRetouche ? retouche.dateRetouche|date('Y-m-d') : '' }}</td>
+                <td>{{ retouche.dateFinRetouche ? retouche.dateFinRetouche|date('Y-m-d') : '' }}</td>
+                <td>{{ retouche.createdAt ? retouche.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ retouche.updatedAt ? retouche.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ retouche.deletedAt ? retouche.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_retouche_show', {'id': retouche.id}) }}">show</a>
+                    <a href="{{ path('app_retouche_edit', {'id': retouche.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

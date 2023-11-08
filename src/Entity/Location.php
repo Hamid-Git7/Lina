@@ -124,4 +124,16 @@ class Location
 
         return $this;
     }
+
+    public function __toString()
+    {
+        $robes = $this->getRobes();
+        $robesNames = [];
+
+        foreach($robes as $robe)
+        {
+            $robesNames[] = $robe->getNomRobe();
+        }
+        return implode(', ', $robesNames);
+    }
 }

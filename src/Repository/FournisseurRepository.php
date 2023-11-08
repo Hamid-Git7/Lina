@@ -21,20 +21,19 @@ class FournisseurRepository extends ServiceEntityRepository
         parent::__construct($registry, Fournisseur::class);
     }
 
-//    /**
-//     * @return Fournisseur[] Returns an array of Fournisseur objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('f.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+        * @return Fournisseur[] Returns an array of Fournisseur objects
+        */
+    public function findFournisseur3(): array
+    {
+        return $this->createQueryBuilder('f')
+            ->select('f')
+            ->Where('f.fournisseur = 3')
+            ->orderBy('f.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?Fournisseur
 //    {

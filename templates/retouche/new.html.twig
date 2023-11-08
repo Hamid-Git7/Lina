@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Retouche{% endblock %}
+
+{% block body %}
+    <h1>Create new Retouche</h1>
+
+    {{ include('retouche/_form.html.twig') }}
+
+    <a href="{{ path('app_retouche_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+
+<h2> Liste des location pour l'id 1 </h2>
+
+{% for location in findLocation1 %}
+
+<p> id : {{ location.id }}, date emprunt : {{ location.dateDebutLocation|date('d/m/y')}} </p>
+
+{% endfor %}
+
+{% for location in prixTotal %}
+
+<p> prix total : {{ location.robe }}
+
+{% endblock %}

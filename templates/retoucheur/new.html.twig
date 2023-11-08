@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Retoucheur{% endblock %}
+
+{% block body %}
+    <h1>Create new Retoucheur</h1>
+
+    {{ include('retoucheur/_form.html.twig') }}
+
+    <a href="{{ path('app_retoucheur_index') }}">back to list</a>
+{% endblock %}

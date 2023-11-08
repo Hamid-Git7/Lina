@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Retoucheur{% endblock %}
+
+{% block body %}
+    <h1>Retoucheur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ retoucheur.id }}</td>
+            </tr>
+            <tr>
+                <th>NomEntreprise</th>
+                <td>{{ retoucheur.nomEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>NumeroSiret</th>
+                <td>{{ retoucheur.numeroSiret }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ retoucheur.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ retoucheur.tel }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ retoucheur.email }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ retoucheur.createdAt ? retoucheur.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ retoucheur.updatedAt ? retoucheur.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DeletedAt</th>
+                <td>{{ retoucheur.deletedAt ? retoucheur.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_retoucheur_index') }}">back to list</a>
+
+    <a href="{{ path('app_retoucheur_edit', {'id': retoucheur.id}) }}">edit</a>
+
+    {{ include('retoucheur/_delete_form.html.twig') }}
+{% endblock %}

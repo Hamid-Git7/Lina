@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Retoucheur index{% endblock %}
+
+{% block body %}
+    <h1>Retoucheur index</h1>
+
+    <a href="{{ path('app_retoucheur_new') }}">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomEntreprise</th>
+                <th>NumeroSiret</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Email</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>DeletedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for retoucheur in retoucheurs %}
+            <tr>
+                <td>{{ retoucheur.id }}</td>
+                <td>{{ retoucheur.nomEntreprise }}</td>
+                <td>{{ retoucheur.numeroSiret }}</td>
+                <td>{{ retoucheur.adresse }}</td>
+                <td>{{ retoucheur.tel }}</td>
+                <td>{{ retoucheur.email }}</td>
+                <td>{{ retoucheur.createdAt ? retoucheur.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ retoucheur.updatedAt ? retoucheur.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ retoucheur.deletedAt ? retoucheur.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_retoucheur_show', {'id': retoucheur.id}) }}">show</a>
+                    <a href="{{ path('app_retoucheur_edit', {'id': retoucheur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

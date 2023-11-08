@@ -87,4 +87,9 @@ class Retouche
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return "{$this->getDateRetouche()} {$this->getDateFinRetouche()}";
+    }
 }

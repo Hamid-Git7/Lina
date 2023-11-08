@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+
+<h2> Liste des Robes par ordre alphabétique avec leurs fournisseur et leurs prix </h2>
+
+{% for robe in robes %}
+
+<p> Nom : {{ robe.nomRobe }}, Fournisseur : {{ robe.fournisseur.nomEntreprise }}, Prix : {{ robe.prix }} </p>
+
+{% endfor %}
+
+{% endblock %}

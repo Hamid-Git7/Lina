@@ -21,20 +21,41 @@ class RobeRepository extends ServiceEntityRepository
         parent::__construct($registry, Robe::class);
     }
 
-//    /**
-//     * @return Robe[] Returns an array of Robe objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+        * @return Robe[] Returns an array of Robe objects
+        */
+    public function findByNomRobe(): array
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.nomRobe IS NOT NULL')
+            ->orderBy('r.nomRobe', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findFournisseur3(): array
+    {
+        return $this->createQueryBuilder('r')
+            ->select('r')
+            ->where('r.fournisseur = 3')
+            ->orderBy('r.fournisseur', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    // public function findFournisseur(): ?Robe
+    // {
+    //     return $this->createQueryBuilder('r')
+    //         ->select('r')
+    //         ->leftJoin('r.fournisseur', 'f')
+    //         ->Where('r.fournisseur = 1')
+    //         ->orderBy('r.fournisseur', 'ASC')
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;
+    // }
 
 //    public function findOneBySomeField($value): ?Robe
 //    {

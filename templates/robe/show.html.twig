@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Robe{% endblock %}
+
+{% block body %}
+    <h1>Robe</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ robe.id }}</td>
+            </tr>
+            <tr>
+                <th>NomRobe</th>
+                <td>{{ robe.nomRobe }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ robe.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ robe.prix }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ robe.createdAt ? robe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ robe.updatedAt ? robe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DeletedAt</th>
+                <td>{{ robe.deletedAt ? robe.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_robe_index') }}">back to list</a>
+
+    <a href="{{ path('app_robe_edit', {'id': robe.id}) }}">edit</a>
+
+    {{ include('robe/_delete_form.html.twig') }}
+{% endblock %}
