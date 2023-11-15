@@ -9,7 +9,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
+#[UniqueEntity('email')]
 #[Gedmo\SoftDeleteable(fieldName: "deletedAt", timeAware: false, hardDelete: false)]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -22,6 +25,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Email(message: '{{ value }} n\'est pas un e-mail valide.')]
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
 
@@ -145,7 +150,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __toString()
     {
-        return "{$this->getEmail()}";
+        return $this->email;
     }
 
 }

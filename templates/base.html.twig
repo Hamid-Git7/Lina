@@ -6,58 +6,70 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
+		<link rel="stylesheet" href="{{ asset('assets/home.css') }}">
             {{ encore_entry_link_tags('app') }}
             <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/cerulean/bootstrap.min.css" rel="stylesheet">
         {% endblock %}
         {% block head %}
-        	<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Lina K. Collection</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarColor01">
-				<ul class="navbar-nav me-auto">
-					<li class="nav-item">
-						<a class="nav-link active" href="{{ path('app_admin_user_index') }}">User
-							<span class="visually-hidden">(current)</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_client_index') }}">Client</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_robe_index') }}">Robe</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_location_index') }}">Location</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_fournisseur_index') }}">Fournisseur</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_retoucheur_index') }}">Retoucheur</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_retouche_index') }}">Retouche</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_categorie_index') }}">Categorie</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_couleur_index') }}">Couleur</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_taille_index') }}">Taille</a>
-					</li>
-				</ul>
-				{# <form class="d-flex">
-					<input class="form-control me-sm-2" type="search" placeholder="Search">
-					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-				</form> #}
-			</div>
-		</div>
-	</nav>
+			<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="{{ path('app_home') }}">Lina K. Collection</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarColor01">
+						<ul class="navbar-nav me-auto">
+							{% if is_granted('ROLE_ADMIN') %}
+							<li class="nav-item">
+								<a class="nav-link active" href="{{ path('app_admin_user_index') }}">Utilisateur
+									<span class="visually-hidden">(current)</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_admin_client_index') }}">Client</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_admin_robe_index') }}">Robe</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_admin_location_index') }}">Location</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_admin_fournisseur_index') }}">Fournisseur</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_admin_retoucheur_index') }}">Retoucheur</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_admin_retouche_index') }}">Retouche</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_admin_categorie_index') }}">Categorie</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_admin_couleur_index') }}">Couleur</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_admin_taille_index') }}">Taille</a>
+							</li>
+							{% endif %}
+						</ul>
+						{# <form class="d-flex">
+							<input class="form-control me-sm-2" type="search" placeholder="Search">
+							<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+						</form> #}
+                            {% if app.user %}
+                            <div>
+                            <a href="{{ path('app_logout') }}">Deconnexion</a>
+                            </div>
+                            {% else %}
+                            <div>
+                            <a href="{{ path('app_login') }}">Connexion</a>
+                        </div>
+                        {% endif %}
+					</div>
+				</div>
+			</nav>
     {% endblock %}
 
         {% block javascripts %}

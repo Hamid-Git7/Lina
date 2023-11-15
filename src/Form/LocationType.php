@@ -27,12 +27,7 @@ class LocationType extends AbstractType
                 'widget' => 'single_text',
                 'required' => false,
             ])
-            ->add('prixTotal', MoneyType::class, [
-                'currency' => 'EUR',
-                'required' => false,
-                'mapped' => false,
-                'disabled'=>true,
-            ])
+            ->add('prixTotal')
             ->add('client', EntityType::class, [
                 'class' => Client::class,
                 'expanded' => true,

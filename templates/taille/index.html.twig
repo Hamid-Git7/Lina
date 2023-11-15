@@ -3,9 +3,10 @@
 {% block title %}Taille index{% endblock %}
 
 {% block body %}
+<div class="container mt-4">
     <h1>Taille index</h1>
 
-    <a href="{{ path('app_taille_new') }}">Create new</a>
+    <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_taille_new') }}">Create new</a></button>
 
     <table class="table">
         <thead>
@@ -20,15 +21,15 @@
         </thead>
         <tbody>
         {% for taille in tailles %}
-            <tr>
+            <tr class="table-success mt-4">
                 <td>{{ taille.id }}</td>
                 <td>{{ taille.nom }}</td>
                 <td>{{ taille.createdAt ? taille.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ taille.updatedAt ? taille.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ taille.deletedAt ? taille.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_taille_show', {'id': taille.id}) }}">show</a>
-                    <a href="{{ path('app_taille_edit', {'id': taille.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_taille_show', {'id': taille.id}) }}">show</a>
+                    <a href="{{ path('app_admin_taille_edit', {'id': taille.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -38,5 +39,5 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
 {% endblock %}

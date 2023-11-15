@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Client;
 use App\Form\ClientType;
@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/client')]
+#[Route('/admin/client')]
 class ClientController extends AbstractController
 {
-    #[Route('/', name: 'app_client_index', methods: ['GET'])]
+    #[Route('/', name: 'app_admin_client_index', methods: ['GET'])]
     public function index(ClientRepository $clientRepository): Response
     {
         return $this->render('client/index.html.twig', [
@@ -22,20 +22,20 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_client_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_admin_client_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $client = new Client();
         $form = $this->createForm(ClientType::class, $client);
         $form->handleRequest($request);
+        $user = $client->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $client->getUser();
             $user->setRoles(['ROLE_USER']);
             $entityManager->persist($client);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_client_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_client_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('client/new.html.twig', [
@@ -44,7 +44,7 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_client_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'app_admin_client_show', methods: ['GET'])]
     public function show(Client $client): Response
     {
         return $this->render('client/show.html.twig', [
@@ -52,7 +52,7 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_client_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'app_admin_client_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Client $client, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ClientType::class, $client);
@@ -61,7 +61,7 @@ class ClientController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_client_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_client_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('client/edit.html.twig', [
@@ -70,7 +70,7 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_client_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'app_admin_client_delete', methods: ['POST'])]
     public function delete(Request $request, Client $client, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$client->getId(), $request->request->get('_token'))) {
@@ -78,6 +78,6 @@ class ClientController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_client_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_admin_client_index', [], Response::HTTP_SEE_OTHER);
     }
 }

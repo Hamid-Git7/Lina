@@ -8,6 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[Gedmo\SoftDeleteable(fieldName: "deletedAt", timeAware: false, hardDelete: false)]
 #[ORM\Entity(repositoryClass: RetoucheRepository::class)]
@@ -21,6 +23,7 @@ class Retouche
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\GreaterThan(propertyPath: 'dateRetouche')]
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateRetouche = null;
 

@@ -3,28 +3,31 @@
 {% block title %}Robe index{% endblock %}
 
 {% block body %}
+<div class="container mt-2">
     <h1>Robe index</h1>
 
-    <a href="{{ path('app_robe_new') }}">Create new</a>
+    <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_robe_new') }}">Create new</a></button>
 
-    <table class="table">
+    <table class="table table-hover mt-2">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom Robe</th>
-                <th>Description</th>
-                <th>Catégotie</th>
-                <th>Prix par jour</th>
-                <th>Fournisseur</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>DeletedAt</th>
-                <th>actions</th>
+                <th scope="col">Id</th>
+                <th scope="col">Nom Robe</th>
+                <th scope="col">Description</th>
+                <th scope="col">Catégotie</th>
+                <th scope="col">Prix/jour</th>
+                <th scope="col">Fournisseur</th>
+                <th scope="col">CreatedAt</th>
+                <th scope="col">UpdatedAt</th>
+                <th scope="col">DeletedAt</th>
+                <th scope="col">actions</th>
             </tr>
         </thead>
+
         <tbody>
         {% for robe in robes %}
-            <tr>
+        <tbody>
+            <tr class="table-success mt-2">
                 <td>{{ robe.id }}</td>
                 <td>{{ robe.nomRobe }}</td>
                 <td>{{ robe.description }}</td>
@@ -35,10 +38,11 @@
                 <td>{{ robe.updatedAt ? robe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ robe.deletedAt ? robe.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_robe_show', {'id': robe.id}) }}">show</a>
-                    <a href="{{ path('app_robe_edit', {'id': robe.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_robe_show', {'id': robe.id}) }}">show</a>
+                    <a href="{{ path('app_admin_robe_edit', {'id': robe.id}) }}">edit</a>
                 </td>
             </tr>
+    </tbody>
         {% else %}
             <tr>
                 <td colspan="8">no records found</td>
@@ -46,5 +50,10 @@
         {% endfor %}
         </tbody>
     </table>
+
+    <div class="navigation d-flex justify-content-center">
+        {{ knp_pagination_render(robes) }}
+    </div>
+</div>
 
 {% endblock %}

@@ -46,9 +46,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_retoucheur_index') }}">back to list</a>
+    <a href="{{ path('app_admin_retoucheur_index') }}">back to list</a>
 
-    <a href="{{ path('app_retoucheur_edit', {'id': retoucheur.id}) }}">edit</a>
+    <a href="{{ path('app_admin_retoucheur_edit', {'id': retoucheur.id}) }}">edit</a>
 
     {{ include('retoucheur/_delete_form.html.twig') }}
 {% endblock %}

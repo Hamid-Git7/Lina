@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[Gedmo\SoftDeleteable(fieldName: "deletedAt", timeAware: false, hardDelete: false)]
 #[ORM\Entity(repositoryClass: LocationRepository::class)]
@@ -24,9 +25,12 @@ class Location
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
+   
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateDebutLocation = null;
 
+    #[Assert\GreaterThan(propertyPath: 'dateDebutLocation')]
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateFinLocation = null;
 
@@ -105,7 +109,6 @@ class Location
     {
         return $this->robes;
     }
-
     public function addRobe(Robe $robe): static
     {
         if (!$this->robes->contains($robe)) {
@@ -115,7 +118,6 @@ class Location
 
         return $this;
     }
-
     public function removeRobe(Robe $robe): static
     {
         if ($this->robes->removeElement($robe)) {
@@ -124,7 +126,6 @@ class Location
 
         return $this;
     }
-
     public function __toString()
     {
         $robes = $this->getRobes();

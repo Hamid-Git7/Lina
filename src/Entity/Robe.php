@@ -23,9 +23,9 @@ class Robe
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column(length: 255)]
+    
     #[Assert\NotBlank]
+    #[ORM\Column(length: 255)]
     private ?string $nomRobe = null;
 
     #[ORM\Column(type: Types::TEXT)]

@@ -1,28 +1,34 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Categorie;
 use App\Form\CategorieType;
 use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/categorie')]
+#[Route('/admin/categorie')]
 class CategorieController extends AbstractController
 {
-    #[Route('/', name: 'app_categorie_index', methods: ['GET'])]
-    public function index(CategorieRepository $categorieRepository): Response
+    #[Route('/', name: 'app_admin_categorie_index', methods: ['GET'])]
+    public function index(CategorieRepository $categorieRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $categories = $paginator->paginate(
+            $categorieRepository->findAll(),
+            $request->query->getInt('page', 1),
+            5
+        );
         return $this->render('categorie/index.html.twig', [
-            'categories' => $categorieRepository->findAll(),
+            'categories' => $categories,
         ]);
     }
 
-    #[Route('/new', name: 'app_categorie_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_admin_categorie_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $categorie = new Categorie();
@@ -33,7 +39,7 @@ class CategorieController extends AbstractController
             $entityManager->persist($categorie);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_categorie_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('categorie/new.html.twig', [
@@ -42,7 +48,7 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_categorie_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'app_admin_categorie_show', methods: ['GET'])]
     public function show(Categorie $categorie): Response
     {
         return $this->render('categorie/show.html.twig', [
@@ -50,7 +56,7 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_categorie_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'app_admin_categorie_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(CategorieType::class, $categorie);
@@ -59,7 +65,7 @@ class CategorieController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_categorie_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('categorie/edit.html.twig', [
@@ -68,7 +74,7 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_categorie_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'app_admin_categorie_delete', methods: ['POST'])]
     public function delete(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$categorie->getId(), $request->request->get('_token'))) {
@@ -76,6 +82,6 @@ class CategorieController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_admin_categorie_index', [], Response::HTTP_SEE_OTHER);
     }
 }

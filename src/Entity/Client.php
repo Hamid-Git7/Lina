@@ -23,16 +23,17 @@ class Client
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
     #[Assert\NotBlank]
+    #[ORM\Column(length: 50)]
     #[Assert\Length(min: 2, max: 50,)]
     private ?string $nom = null;
 
-    #[ORM\Column(length: 50)]
     #[Assert\NotBlank]
+    #[ORM\Column(length: 50)]
     #[Assert\Length(min: 2, max: 50,)]
     private ?string $prenom = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 20)]
     private ?string $tel = null;
 
@@ -133,7 +134,7 @@ class Client
 
     public function __toString()
     {
-        return "{$this->getNom()} {$this->getPrenom()}";
+        return $this->nom ;
     }
     
 }

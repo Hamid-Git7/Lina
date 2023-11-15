@@ -10,6 +10,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
+
 #[Gedmo\SoftDeleteable(fieldName: "deletedAt", timeAware: false, hardDelete: false)]
 #[ORM\Entity(repositoryClass: FournisseurRepository::class)]
 class Fournisseur

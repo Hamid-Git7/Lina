@@ -442,7 +442,7 @@ class TestFixtures extends Fixture implements FixtureGroupInterface
 
             // données dynamiques
 
-            for ($i = 0; $i < 10; $i++) {
+            for ($i = 0; $i < 30; $i++) {
                 $robe = new Robe();
                 $robe->setNomRobe($this->faker->word());
                 $robe->setDescription($this->faker->text());
