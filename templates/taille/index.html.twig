@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="container mt-4">
-    <h1>Taille index</h1>
+    <h1>Taille</h1>
 
     <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_taille_new') }}">Create new</a></button>
 
@@ -13,9 +13,6 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>DeletedAt</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -24,9 +21,6 @@
             <tr class="table-success mt-4">
                 <td>{{ taille.id }}</td>
                 <td>{{ taille.nom }}</td>
-                <td>{{ taille.createdAt ? taille.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ taille.updatedAt ? taille.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ taille.deletedAt ? taille.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_admin_taille_show', {'id': taille.id}) }}">show</a>
                     <a href="{{ path('app_admin_taille_edit', {'id': taille.id}) }}">edit</a>

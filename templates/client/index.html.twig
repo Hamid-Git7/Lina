@@ -5,7 +5,7 @@
 {% block body %}
 	<div class="container mt-4">
 
-        <h1>Client index</h1>
+        <h1>Client</h1>
 
     <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_client_new') }}">Create new</a></button>
 
@@ -16,9 +16,6 @@
                     <th>Nom</th>
                     <th>Prenom</th>
                     <th>Tel</th>
-                    <th>CreatedAt</th>
-                    <th>UpdatedAt</th>
-                    <th>DeletedAt</th>
                     <th>actions</th>
                 </tr>
             </thead>
@@ -29,9 +26,6 @@
                     <td>{{ client.nom }}</td>
                     <td>{{ client.prenom }}</td>
                     <td>{{ client.tel }}</td>
-                    <td>{{ client.createdAt ? client.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ client.updatedAt ? client.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ client.deletedAt ? client.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                     <td>
                         <a href="{{ path('app_admin_client_show', {'id': client.id}) }}">show</a>
                         <a href="{{ path('app_admin_client_edit', {'id': client.id}) }}">edit</a>

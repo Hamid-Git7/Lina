@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="container mt-2">
-    <h1>Robe index</h1>
+    <h1>Robes</h1>
 
     <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_robe_new') }}">Create new</a></button>
 
@@ -17,9 +17,6 @@
                 <th scope="col">Catégotie</th>
                 <th scope="col">Prix/jour</th>
                 <th scope="col">Fournisseur</th>
-                <th scope="col">CreatedAt</th>
-                <th scope="col">UpdatedAt</th>
-                <th scope="col">DeletedAt</th>
                 <th scope="col">actions</th>
             </tr>
         </thead>
@@ -34,9 +31,6 @@
                 <td>{{ robe.categorie }}
                 <td>{{ robe.prix }}</td>
                 <td>{{ robe.fournisseur }}</td>
-                <td>{{ robe.createdAt ? robe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ robe.updatedAt ? robe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ robe.deletedAt ? robe.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_admin_robe_show', {'id': robe.id}) }}">show</a>
                     <a href="{{ path('app_admin_robe_edit', {'id': robe.id}) }}">edit</a>

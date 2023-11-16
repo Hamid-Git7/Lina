@@ -26,7 +26,6 @@ class Location
     private ?int $id = null;
 
     #[Assert\NotBlank]
-   
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateDebutLocation = null;
 

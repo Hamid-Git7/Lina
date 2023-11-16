@@ -5,7 +5,7 @@
 {% block body %}
 	<div class="container mt-4">
 
-        <h1>Couleur index</h1>
+        <h1>Couleurs</h1>
 
     <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_couleur_new') }}">Create new</a></button>
 
@@ -14,9 +14,6 @@
                 <tr>
                     <th>Id</th>
                     <th>Nom</th>
-                    <th>CreatedAt</th>
-                    <th>UpdatedAt</th>
-                    <th>DeletedAt</th>
                     <th>actions</th>
                 </tr>
             </thead>
@@ -25,9 +22,6 @@
                 <tr class="table-success mt-4">
                     <td>{{ couleur.id }}</td>
                     <td>{{ couleur.nom }}</td>
-                    <td>{{ couleur.createdAt ? couleur.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ couleur.updatedAt ? couleur.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ couleur.deletedAt ? couleur.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                     <td>
                         <a href="{{ path('app_admin_couleur_show', {'id': couleur.id}) }}">show</a>
                         <a href="{{ path('app_admin_couleur_edit', {'id': couleur.id}) }}">edit</a>

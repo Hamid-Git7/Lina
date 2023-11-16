@@ -5,7 +5,7 @@
 {% block body %}
     <div class="container mt-4">
 
-        <h1>Location</h1>
+        <h1>Locations</h1>
         
     <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_location_new') }}">Create new</a></button>
 
@@ -16,8 +16,6 @@
                     <th>DateDebutLocation</th>
                     <th>DateFinLocation</th>
                     <th>Prix Total en €</th>
-                    <th>CreatedAt</th>
-                    <th>UpdatedAt</th>
                     {# <th>DeletedAt</th> #}
                     <th>actions</th>
                 </tr>
@@ -29,9 +27,6 @@
                     <td>{{ location.dateDebutLocation ? location.dateDebutLocation|date('Y-m-d') : '' }}</td>
                     <td>{{ location.dateFinLocation ? location.dateFinLocation|date('Y-m-d') : '' }}</td>
                     <td>{{ location.prixTotal }}</td>
-                    <td>{{ location.createdAt ? location.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ location.updatedAt ? location.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                    {# <td>{{ location.deletedAt ? location.deletedAt|date('Y-m-d H:i:s') : '' }}</td> #}
                     <td>
                         <a href="{{ path('app_admin_location_show', {'id': location.id}) }}">show</a>
                         <a href="{{ path('app_admin_location_edit', {'id': location.id}) }}">edit</a>

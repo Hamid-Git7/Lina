@@ -4,7 +4,7 @@
 
 {% block body %}
 	<div class="container mt-4">
-        <h1>Fournisseur index</h1>
+        <h1>Fournisseurs</h1>
 
     <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_fournisseur_new') }}">Create new</a></button>
 
@@ -17,9 +17,6 @@
                     <th>Adresse</th>
                     <th>Tel</th>
                     <th>Email</th>
-                    <th>CreatedAt</th>
-                    <th>UpdatedAt</th>
-                    <th>DeletedAt</th>
                     <th>actions</th>
                 </tr>
             </thead>
@@ -32,9 +29,6 @@
                     <td>{{ fournisseur.adresse }}</td>
                     <td>{{ fournisseur.tel }}</td>
                     <td>{{ fournisseur.email }}</td>
-                    <td>{{ fournisseur.createdAt ? fournisseur.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ fournisseur.updatedAt ? fournisseur.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ fournisseur.deletedAt ? fournisseur.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                     <td>
                         <a href="{{ path('app_admin_fournisseur_show', {'id': fournisseur.id}) }}">show</a>
                         <a href="{{ path('app_admin_fournisseur_edit', {'id': fournisseur.id}) }}">edit</a>

@@ -5,7 +5,7 @@
 {% block body %}
     <div class="container mt-4">
 
-        <h1>Retoucheur index</h1>
+        <h1>Retoucheurs</h1>
 
     <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_retoucheur_new') }}">Create new</a></button>
 
@@ -18,9 +18,6 @@
                     <th>Adresse</th>
                     <th>Tel</th>
                     <th>Email</th>
-                    <th>CreatedAt</th>
-                    <th>UpdatedAt</th>
-                    <th>DeletedAt</th>
                     <th>actions</th>
                 </tr>
             </thead>
@@ -33,9 +30,6 @@
                     <td>{{ retoucheur.adresse }}</td>
                     <td>{{ retoucheur.tel }}</td>
                     <td>{{ retoucheur.email }}</td>
-                    <td>{{ retoucheur.createdAt ? retoucheur.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ retoucheur.updatedAt ? retoucheur.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ retoucheur.deletedAt ? retoucheur.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                     <td>
                         <a href="{{ path('app_admin_retoucheur_show', {'id': retoucheur.id}) }}">show</a>
                         <a href="{{ path('app_admin_retoucheur_edit', {'id': retoucheur.id}) }}">edit</a>

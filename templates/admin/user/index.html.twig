@@ -5,7 +5,7 @@
 
 {% block body %}
 	<div class="container mt-4">
-		<h1>User index</h1>
+		<h1>Utilisateurs</h1>
 
 		<button type="button" class="btn btn-dark"><a href="{{ path('app_admin_user_new') }}">Create new</a></button>
 
@@ -15,7 +15,6 @@
 					<th>Id</th>
 					<th>Email</th>
 					<th>Roles</th>
-					<th>Password</th>
 					{# <th>CreatedAt</th>
 					<th>UpdatedAt</th>
 					<th>DeletedAt</th> #}
@@ -28,7 +27,6 @@
 						<td>{{ user.id }}</td>
 						<td>{{ user.email }}</td>
 						<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-						<td>{{ user.password }}</td>
 						{# <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ user.deletedAt ? user.deletedAt|date('Y-m-d H:i:s') : '' }}</td> #}
