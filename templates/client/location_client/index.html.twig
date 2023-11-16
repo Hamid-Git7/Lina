@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LocationClientController!{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+
+        <h1>Locations</h1>
+        
+        <button type="button" class="btn btn-dark"><a href="{{ path('app_client_location_new') }}">Create new</a></button>
+        <h2>{{user.client.nom}}</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>DateDebutLocation</th>
+                    <th>DateFinLocation</th>
+                    <th>Prix Total en €</th>
+                    {# <th>DeletedAt</th> #}
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for location in locations %}
+                <tr class="table-success mt-4">
+                    <td>{{ location.id }}</td>
+                    <td>{{ location.dateDebutLocation ? location.dateDebutLocation|date('Y-m-d') : '' }}</td>
+                    <td>{{ location.dateFinLocation ? location.dateFinLocation|date('Y-m-d') : '' }}</td>
+                    <td>{{ location.prixTotal }}</td>
+                    <td>
+                        <a href="{{ path('app_client_location_edit', {'id': location.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+{% endblock %}

@@ -7,10 +7,8 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Doctrine\ORM\EntityRepository;
 use App\Entity\Client;
 use App\Entity\Robe;
-use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -27,7 +25,7 @@ class LocationType extends AbstractType
                 'widget' => 'single_text',
                 'required' => false,
             ])
-            ->add('prixTotal')
+            ->add('prixTotal',)
             ->add('client', EntityType::class, [
                 'class' => Client::class,
                 'expanded' => true,
