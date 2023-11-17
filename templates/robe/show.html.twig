@@ -38,9 +38,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_robe_index') }}">back to list</a>
+    <a href="{{ path('app_admin_robe_index') }}">back to list</a>
 
-    <a href="{{ path('app_robe_edit', {'id': robe.id}) }}">edit</a>
+    <a href="{{ path('app_admin_robe_edit', {'id': robe.id}) }}">edit</a>
 
     {{ include('robe/_delete_form.html.twig') }}
 {% endblock %}

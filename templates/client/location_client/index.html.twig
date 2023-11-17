@@ -7,8 +7,8 @@
 
         <h1>Locations</h1>
         
-        <button type="button" class="btn btn-dark"><a href="{{ path('app_client_location_new') }}">Create new</a></button>
-        <h2>{{user.client.nom}}</h2>
+        <button type="button" class="btn btn-dark"><a href="{{ path('app_location_new') }}">Create new</a></button>
+        {# <h2>{{user.client.nom}}</h2> #}
         <table class="table">
             <thead>
                 <tr>
@@ -16,8 +16,6 @@
                     <th>DateDebutLocation</th>
                     <th>DateFinLocation</th>
                     <th>Prix Total en €</th>
-                    {# <th>DeletedAt</th> #}
-                    <th>actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,9 +25,6 @@
                     <td>{{ location.dateDebutLocation ? location.dateDebutLocation|date('Y-m-d') : '' }}</td>
                     <td>{{ location.dateFinLocation ? location.dateFinLocation|date('Y-m-d') : '' }}</td>
                     <td>{{ location.prixTotal }}</td>
-                    <td>
-                        <a href="{{ path('app_client_location_edit', {'id': location.id}) }}">edit</a>
-                    </td>
                 </tr>
             {% else %}
                 <tr>

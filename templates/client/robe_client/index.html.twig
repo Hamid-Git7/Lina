@@ -13,6 +13,7 @@
                 <th scope="col">Description</th>
                 <th scope="col">Catégotie</th>
                 <th scope="col">Prix/jour €</th>
+                <th scope="col">action</th>
             </tr>
         </thead>
 
@@ -24,6 +25,9 @@
                 <td>{{ robe.description }}</td>
                 <td>{{ robe.categorie }}
                 <td>{{ robe.prix }}</td>
+                <td>
+                    <a href="{{ path('app_client_robe_show', {'id': robe.id}) }}">show</a>
+                </td>
             </tr>
     </tbody>
         {% else %}

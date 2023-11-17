@@ -10,21 +10,21 @@ use App\Repository\LocationRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/client/location')]
+#[Route('/location')]
 class LocationClientController extends AbstractController
 {
-    #[Route('/client', name: 'app_client_location_client')]
-    public function index(Request $request, LocationRepository $locations, UserRepository $user, ClientRepository $client): Response
+    #[Route('/', name: 'app_location_index', methods: ['GET'])]
+    public function index(LocationRepository $locationRepository, UserRepository $user, ClientRepository $client): Response
     {
         
         $user = $this->getUser();
        /** @var User $user */
         $client = $user->getClient();
-        $locations = $locations->findByClient($client);
+        $locations = $locationRepository->findByClient($client);
 
         return $this->render('client/location_client/index.html.twig', [
             'controller_name' => 'LocationClientController',
@@ -33,7 +33,7 @@ class LocationClientController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_client_location_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_location_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $location = new Location();
@@ -48,7 +48,7 @@ class LocationClientController extends AbstractController
             return $this->redirectToRoute('app_location_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('location/new.html.twig', [
+        return $this->renderForm('client/location_client/new.html.twig', [
             'location' => $location,
             'form' => $form,
         ]);

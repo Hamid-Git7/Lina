@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Robe{% endblock %}
+
+{% block body %}
+    <h1>Robe</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ robe.id }}</td>
+            </tr>
+            <tr>
+                <th>NomRobe</th>
+                <td>{{ robe.nomRobe }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ robe.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ robe.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_client_robe_index') }}">back to list</a>
+
+{% endblock %}
