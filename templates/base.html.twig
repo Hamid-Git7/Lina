@@ -13,6 +13,7 @@
 		{% endblock %}
 
         {% block head %}
+		<div class="menu">
 			<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="{{ path('app_home') }}">Lina K. Collection</a>
@@ -70,20 +71,41 @@
 						</form> #}
                             {% if app.user %}
                             <div>
-                            <a href="{{ path('app_logout') }}">Deconnexion</a>
+                            <a class="btn-nav" href="{{ path('app_logout') }}">Deconnexion</a>
                             </div>
                             {% else %}
                         <div>
-							<a href="{{ path('app_register') }}">Inscription</a>
-                            <a href="{{ path('app_login') }}">Connexion</a>
+							<a class="btn-nav" href="{{ path('app_register') }}">Inscription</a>
+                            <a class="btn-nav" href="{{ path('app_login') }}">Connexion</a>
                         </div>
                         {% endif %}
 					</div>
 				</div>
 			</nav>
+		</div>
     {% endblock %}
     </head>
-        {% block body %}
-		
-		{% endblock %}
+
+    {% block body %}
+	{% endblock %}
+	{% block footer %}
+		<footer>
+			<div class="footer">
+				<div class="footer-content">
+					<h3>Lina K. Collection</h3>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, quisquam minima atque explicabo natus.</p>
+					<ul class="socials">
+						<li><a href="https://www.facebook.com/people/Lina-Kaftan/pfbid02vXt6PdWp67fBSau44RN1JMQ11UJLXCRgk95uwdJKREfoADRX3UtZinoPdhQ4HZUZl/"><i class='bx bxl-facebook-square'></i></a></li>
+						<li><a href="https://twitter.com/?lang=fr"><i class="bx bxl-twitter"></i></a></li>
+						<li><a href="https://www.instagram.com/lina_k_collection/?igshid=MTk0NTkyODZkYg%3D%3D"><i class="bx bxl-instagram"></i></a></li>
+						<li><a href="https://www.tiktok.com/@linak.collection"><i class="bx bxl-tiktok"></i></a></li>
+						<li><a href="#"><i class="bx bxl-gmail"></i></a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom">
+					<p>copyright &copy;2023 Lina K. Collection. designed by <span>Add.</span></p>
+				</div>
+			</div>
+		</footer>
+	{% endblock %}
 </html>

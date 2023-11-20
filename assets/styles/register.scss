@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 140vh;
-    background-image: url(/assets/styles/images/mezidi-zineb-ZRF4oFKTjIw-unsplash.jpg);
+    background:linear-gradient(rgba(0, 0, 0, 0.116), #333), url(/assets/styles/images/Model.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -17,6 +17,8 @@
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
+    margin-right: 900px;
+    margin-bottom: 300px;
 }
 
 .wrapper-r h1 {

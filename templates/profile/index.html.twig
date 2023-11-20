@@ -14,9 +14,6 @@
                     <th>Id</th>
                     <th>Email</th>
                     <th>Roles</th>
-                    <th>CreatedAt</th>
-                    <th>UpdatedAt</th>
-                    <th>DeletedAt</th>
                     <th>actions</th>
                 </tr>
             </thead>
@@ -27,9 +24,6 @@
                     <td>{{ user.id }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                    <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ user.deletedAt ? user.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                     <td>
                         <a href="{{ path('app_profile_show', {'id': user.id}) }}">show</a>
                     {% if is_granted('ROLE_ADMIN') or app.user == user %}

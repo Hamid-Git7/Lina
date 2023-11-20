@@ -36,12 +36,17 @@ class LocationClientController extends AbstractController
     #[Route('/new', name: 'app_location_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $user = $this->getUser();
+        /** @var User $user */
+        $client = $user->getClient();
+        
         $location = new Location();
         $form = $this->createForm(LocationClientType::class, $location);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) { 
-            
+        
+            $location->setClient($client);
             $entityManager->persist($location);
             $entityManager->flush();
 

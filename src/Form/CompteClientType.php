@@ -2,28 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Location;
+use App\Entity\Client;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class LocationClientType extends AbstractType
+class CompteClientType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-
-            ->add('dateDebutLocation')
-            ->add('dateFinLocation')
-            ->add('prixTotal')
-            ->add('robes')
+            ->add('nom')
+            ->add('prenom')
+            ->add('tel')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Location::class,
+            'data_class' => Client::class,
         ]);
     }
 }

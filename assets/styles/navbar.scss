@@ -1,0 +1,25 @@
+.navbar-brand {
+    color: #e29d08;
+    // font-size: 30px;
+    font-weight: bolder;
+}
+
+.btn-nav {
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #e29d08;
+    font-size: 14px;
+    border: 2px solid #e29d08;
+    padding: 5px 20px;
+    transition: 0.5s;
+    font-weight: bolder;
+}
+
+.btn-nav:hover {
+    background-color: #e29d08;
+    color: #fff;
+}
+
+.collapse navbar-collapse{
+    color: #e29d08;
+}

@@ -5,7 +5,7 @@
 }
 
 #home {
-    background: linear-gradient(rgba(0, 0, 0, 0.116), #333), url("images/mezidi-zineb-ZRF4oFKTjIw-unsplash.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.116), #333), url("images/Model.jpg");
     background-position: center;
     background-size: cover;
     height: 145vh;
@@ -35,31 +35,16 @@
 }
 
 .btn-reservation {
-    color: #c2b64d;
+    color: #e29d08;
     font-size: 14px;
-    border: 2px solid #c2b64d;
+    border: 2px solid #e29d08;
     padding: 5px 20px;
     transition: 0.5s;
     font-weight: bolder;
 }
 
 .btn-reservation:hover {
-    background-color: #c2b64d;
+    background-color: #e29d08;
     color: #fff;
 }
 
-footer {
-    width: 100%;
-    background-color: #222;
-    padding: 10px 0;
-    font-size: 14px;
-    text-align: center;
-}
-
-footer p {
-    color: #fff;
-}
-
-footer p span {
-    color: #29d9d5;
-}
