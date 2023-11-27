@@ -387,7 +387,7 @@ class TestFixtures extends Fixture implements FixtureGroupInterface
         $this->manager->flush();
     }
 
-        public function loadRobes(): void
+    public function loadRobes(): void
         {
             $repositoryTaille = $this->manager->getRepository(Taille::class);
             $tailles = $repositoryTaille->findAll();

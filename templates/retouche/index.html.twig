@@ -7,38 +7,39 @@
 
         <h1>Retouche</h1>
 
-    <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_retouche_new') }}">Create new</a></button>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Robe</th>
-                    <th>Retoucheur</th>
-                    <th>DateRetouche</th>
-                    <th>DateFinRetouche</th>
-                    <th>actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for retouche in retouches %}
-                <tr class="table-success mt-4">
-                    <td>{{ retouche.id }}</td>
-                    <td>{{ retouche.robe }}</td>
-                    <td>{{ retouche.retoucheur }}
-                    <td>{{ retouche.dateRetouche ? retouche.dateRetouche|date('Y-m-d') : '' }}</td>
-                    <td>{{ retouche.dateFinRetouche ? retouche.dateFinRetouche|date('Y-m-d') : '' }}</td>
-                    <td>
-                        <a href="{{ path('app_admin_retouche_show', {'id': retouche.id}) }}">show</a>
-                        <a href="{{ path('app_admin_retouche_edit', {'id': retouche.id}) }}">edit</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="7">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <a class="btn-all" href="{{ path('app_admin_retouche_new') }}">Create new</a></button>
+		<div class="header_fixed mt-4 mb-4">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Robe</th>
+                        <th>Retoucheur</th>
+                        <th>DateRetouche</th>
+                        <th>DateFinRetouche</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for retouche in retouches %}
+                    <tr>
+                        <td>{{ retouche.id }}</td>
+                        <td>{{ retouche.robe }}</td>
+                        <td>{{ retouche.retoucheur }}
+                        <td>{{ retouche.dateRetouche ? retouche.dateRetouche|date('Y-m-d') : '' }}</td>
+                        <td>{{ retouche.dateFinRetouche ? retouche.dateFinRetouche|date('Y-m-d') : '' }}</td>
+                        <td>
+                            <a class="btn-all" href="{{ path('app_admin_retouche_show', {'id': retouche.id}) }}">show</a>
+                            <a class="btn-all" href="{{ path('app_admin_retouche_edit', {'id': retouche.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}

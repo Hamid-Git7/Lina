@@ -1,52 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Robe index{% endblock %}
+{% block title %}Robe{% endblock %}
 
 {% block body %}
-<div class="container mt-2">
+<div class="container mt-4">
     <h1>Robes</h1>
-
-    <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_robe_new') }}">Create new</a></button>
-
-    <table class="table table-hover mt-2">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nom Robe</th>
-                <th scope="col">Description</th>
-                <th scope="col">Catégotie</th>
-                <th scope="col">Prix/jour</th>
-                <th scope="col">Fournisseur</th>
-                <th scope="col">actions</th>
-            </tr>
-        </thead>
-
-        <tbody>
-        {% for robe in robes %}
-        <tbody>
-            <tr class="table-success mt-2">
-                <td>{{ robe.id }}</td>
-                <td>{{ robe.nomRobe }}</td>
-                <td>{{ robe.description }}</td>
-                <td>{{ robe.categorie }}
-                <td>{{ robe.prix }}</td>
-                <td>{{ robe.fournisseur }}</td>
-                <td>
-                    <a href="{{ path('app_admin_robe_show', {'id': robe.id}) }}">show</a>
-                    <a href="{{ path('app_admin_robe_edit', {'id': robe.id}) }}">edit</a>
-                </td>
-            </tr>
-    </tbody>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <div class="navigation d-flex justify-content-center">
-        {{ knp_pagination_render(robes) }}
+    <a class="btn-all" href="{{ path('app_admin_robe_new') }}">Create new</a></button>
+	<div class="header_fixed mt-4 mb-4">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom Robe</th>
+                    <th>Description</th>
+                    <th>Catégotie</th>
+                    <th>Prix/jour</th>
+                    <th>Fournisseur</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for robe in robes %}
+                    <tr>
+                        <td>{{ robe.id }}</td>
+                        <td>{{ robe.nomRobe }}</td>
+                        <td>{{ robe.description }}</td>
+                        <td>{{ robe.categorie }}
+                        <td>{{ robe.prix }}</td>
+                        <td>{{ robe.fournisseur }}</td>
+                        <td>
+                            <a class="btn-all" href="{{ path('app_admin_robe_show', {'id': robe.id}) }}">show</a>
+                            <a class="btn-all" href="{{ path('app_admin_robe_edit', {'id': robe.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8">no records found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation d-flex justify-content-center">
+            {{ knp_pagination_render(robes) }}
+        </div>
     </div>
 </div>
 

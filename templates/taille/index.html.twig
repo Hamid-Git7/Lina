@@ -6,32 +6,33 @@
 <div class="container mt-4">
     <h1>Taille</h1>
 
-    <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_taille_new') }}">Create new</a></button>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for taille in tailles %}
-            <tr class="table-success mt-4">
-                <td>{{ taille.id }}</td>
-                <td>{{ taille.nom }}</td>
-                <td>
-                    <a href="{{ path('app_admin_taille_show', {'id': taille.id}) }}">show</a>
-                    <a href="{{ path('app_admin_taille_edit', {'id': taille.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <a class="btn-all" href="{{ path('app_admin_taille_new') }}">Créer</a></button>
+	<div class="header_fixed mt-4 mb-4">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for taille in tailles %}
+                    <tr>
+                        <td>{{ taille.id }}</td>
+                        <td>{{ taille.nom }}</td>
+                        <td>
+                            <a class="btn-all" href="{{ path('app_admin_taille_show', {'id': taille.id}) }}">show</a>
+                            <a class="btn-all" href="{{ path('app_admin_taille_edit', {'id': taille.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 </div>
 {% endblock %}

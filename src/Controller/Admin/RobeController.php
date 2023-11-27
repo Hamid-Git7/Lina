@@ -21,7 +21,7 @@ class RobeController extends AbstractController
         $robes = $paginator->paginate(
             $robeRepository->findAll(),
             $request->query->getInt('page', 1),
-            5
+            10
         );
         return $this->render('robe/index.html.twig', [
             'robes' => $robes

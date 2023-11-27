@@ -1,44 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Robe index{% endblock %}
+{% block title %}Robe{% endblock %}
 
 {% block body %}
-<div class="container">
+<div class="container mt-4">
     <h1>Robes</h1>
+    <div class="header_fixed mt-4 mb-4">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom Robe</th>
+                    <th>Description</th>
+                    <th>Catégotie</th>
+                    <th>Prix/jour €</th>
+                    <th>action</th>
+                </tr>
+            </thead>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Nom Robe</th>
-                <th scope="col">Description</th>
-                <th scope="col">Catégotie</th>
-                <th scope="col">Prix/jour €</th>
-                <th scope="col">action</th>
-            </tr>
-        </thead>
-
-        <tbody>
-        {% for robe in robes %}
-        <tbody>
-            <tr class="table-success">
-                <td>{{ robe.nomRobe }}</td>
-                <td>{{ robe.description }}</td>
-                <td>{{ robe.categorie }}
-                <td>{{ robe.prix }}</td>
-                <td>
-                    <a href="{{ path('app_client_robe_show', {'id': robe.id}) }}">show</a>
-                </td>
-            </tr>
-    </tbody>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
+            <tbody>
+            {% for robe in robes %}
+            <tbody>
+                <tr>
+                    <td>{{ robe.nomRobe }}</td>
+                    <td>{{ robe.description }}</td>
+                    <td>{{ robe.categorie }}
+                    <td>{{ robe.prix }}</td>
+                    <td>
+                        <a class="btn-all" href="{{ path('app_client_robe_show', {'id': robe.id}) }}">show</a>
+                    </td>
+                </tr>
         </tbody>
-    </table>
-
-
+            {% else %}
+                <tr>
+                    <td colspan="8">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 
 {% endblock %}

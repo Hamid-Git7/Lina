@@ -1,4 +1,37 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+        <div class="container">
+    <div class="form-container">
+        {{ form_start(form) }}
+
+        <div class="form-row">
+            {{ form_label(form.nomRobe) }}
+            {{ form_widget(form.nomRobe) }}
+        </div>
+
+        <div class="form-row">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+        </div>
+
+        <div class="form-row">
+            {{ form_label(form.prix) }}
+            {{ form_widget(form.prix) }}
+        </div>
+
+        {# <div class="form-row">
+            {{ form_label(form.imageName) }}
+            {{ form_widget(form.imageName) }}
+        </div>
+
+        <div class="form-row">
+            {{ form_label(form.imageName) }}
+            {{ form_widget(form.imageName) }}
+        </div> #}
+
+
+
+        <div class="button-container">
+        <button class="btn">{{ button_label|default('Save') }}</button>
+        </div>
+            {{ form_end(form) }}
+    </div>
+    </div>

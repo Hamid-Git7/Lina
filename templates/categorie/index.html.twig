@@ -5,36 +5,36 @@
 {% block body %}
     <div class="container mt-4">
         <h1>Categories</h1>
-
-    <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_categorie_new') }}">Create new</a></button>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nom</th>
-                    <th>actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for categorie in categories %}
-                <tr class="table-success mt-4">
-                    <td>{{ categorie.id }}</td>
-                    <td>{{ categorie.nom }}</td>
-                    <td>
-                        <a href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}">show</a>
-                        <a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="6">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <a class="btn-all" href="{{ path('app_admin_categorie_new') }}">Create new</a></button>
+		<div class="header_fixed mt-4 mb-4">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for categorie in categories %}
+                    <tr>
+                        <td>{{ categorie.id }}</td>
+                        <td>{{ categorie.nom }}</td>
+                        <td>
+                            <a class="btn-all" href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}">show</a>
+                            <a class="btn-all" href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
             <div class="navigation d-flex justify-content-center">
-        {{ knp_pagination_render(categories) }}
-    </div>
+                {{ knp_pagination_render(categories) }}
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -1,0 +1,51 @@
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    max-width: 700px;
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 30px;
+
+}
+
+.form-row input {
+    width: 100%;
+}
+
+.new-user {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-back{
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-back a {
+    text-decoration: none;
+}
+
+#edit-user {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.create-new {
+    color: red;
+    padding: 10px;
+}

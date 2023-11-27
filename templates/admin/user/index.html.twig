@@ -4,43 +4,38 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container mt-4">
-		<h1>Utilisateurs</h1>
+	<section id="caftan">
+		<h1 class="user" >Utilisateurs</h1>
 
-		<button type="button" class="btn btn-dark"><a href="{{ path('app_admin_user_new') }}">Create new</a></button>
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Email</th>
-					<th>Roles</th>
-					{# <th>CreatedAt</th>
-					<th>UpdatedAt</th>
-					<th>DeletedAt</th> #}
-					<th>actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for user in users %}
-					<tr class="table-success mt-4">
-						<td>{{ user.id }}</td>
-						<td>{{ user.email }}</td>
-						<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-						{# <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-						<td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-						<td>{{ user.deletedAt ? user.deletedAt|date('Y-m-d H:i:s') : '' }}</td> #}
-						<td>
-							<a href="{{ path('app_admin_user_show', {'id': user.id}) }}">show</a>
-							<a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">edit</a>
-						</td>
-					</tr>
-				{% else %}
+		<a class="btn-all" href="{{ path('app_admin_user_new') }}">Créer</a></button>
+		<div class="header_fixed mt-4 mb-4">
+			<table>
+				<thead>
 					<tr>
-						<td colspan="8">no records found</td>
+						<th>Id</th>
+						<th>Email</th>
+						<th>Roles</th>
+						<th>actions</th>
 					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
+				</thead>
+				<tbody>
+					{% for user in users %}
+						<tr>
+							<td>{{ user.id }}</td>
+							<td>{{ user.email }}</td>
+							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+							<td>
+								<a class="btn-all" href="{{ path('app_admin_user_show', {'id': user.id}) }}">show</a>
+								<a class="btn-all" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">edit</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="8">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
 {% endblock %}

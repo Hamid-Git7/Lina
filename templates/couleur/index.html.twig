@@ -5,10 +5,10 @@
 {% block body %}
 	<div class="container mt-4">
 
-        <h1>Couleurs</h1>
+    <h1>Couleurs</h1>
 
-    <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_couleur_new') }}">Create new</a></button>
-
+    <a class="btn-all" href="{{ path('app_admin_couleur_new') }}">Créer</a></button>
+    <div class="header_fixed mt-4 mb-4">
         <table class="table">
             <thead>
                 <tr>
@@ -19,12 +19,12 @@
             </thead>
             <tbody>
             {% for couleur in couleurs %}
-                <tr class="table-success mt-4">
+                <tr>
                     <td>{{ couleur.id }}</td>
                     <td>{{ couleur.nom }}</td>
                     <td>
-                        <a href="{{ path('app_admin_couleur_show', {'id': couleur.id}) }}">show</a>
-                        <a href="{{ path('app_admin_couleur_edit', {'id': couleur.id}) }}">edit</a>
+                        <a class="btn-all" href="{{ path('app_admin_couleur_show', {'id': couleur.id}) }}">show</a>
+                        <a class="btn-all" href="{{ path('app_admin_couleur_edit', {'id': couleur.id}) }}">edit</a>
                     </td>
                 </tr>
             {% else %}
@@ -34,5 +34,6 @@
             {% endfor %}
             </tbody>
         </table>
+        </div>
     </div>
 {% endblock %}

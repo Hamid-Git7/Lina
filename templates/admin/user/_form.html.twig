@@ -1,4 +1,19 @@
+<div class="container-form">
+
+<div class="form-container">
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+<div class="form-row">
+{{form_label(form.email)}}
+{{form_widget(form.email)}}
+</div>
+<div class="form-row">
+
+{{form_widget(form.password)}}
+</div>
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
+</div>
+</div>
+
+
+

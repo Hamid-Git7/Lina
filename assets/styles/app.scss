@@ -1,2 +1,70 @@
 @import "~bootstrap/scss/bootstrap";
 
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 auto;  
+}
+
+#caftan {
+    // background: url("images/Image01.png");
+    background-position: center;
+    background-size: cover;
+    height: 200vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.btn-all {
+    color: #e29d08;
+    font-size: 14px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px 20px;
+    transition: 0.5s;
+    font-weight: bolder;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.header_fixed {
+
+    max-height: 100vh;
+    width: 800px;
+    overflow: auto;
+    border: 1px solid #dddddd;
+}
+
+.header_fixed thead th {
+    position: sticky;
+    top: 0;
+    background-color: #e29d08;
+    color: #000;
+    font-size: 15px;
+}
+
+th,
+td {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #ffffff7c;
+}
+
+td button {
+    border: none;
+    padding: 7px 20px;
+    border-radius: 20px;
+    background-color: black;
+    color: #e6e7e8;
+}

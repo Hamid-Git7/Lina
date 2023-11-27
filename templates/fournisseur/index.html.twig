@@ -4,43 +4,44 @@
 
 {% block body %}
 	<div class="container mt-4">
-        <h1>Fournisseurs</h1>
+            <h1>Fournisseurs</h1>
 
-    <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_fournisseur_new') }}">Create new</a></button>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>NomEntreprise</th>
-                    <th>NumeroSiret</th>
-                    <th>Adresse</th>
-                    <th>Tel</th>
-                    <th>Email</th>
-                    <th>actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for fournisseur in fournisseurs %}
-                <tr class="table-success mt-4">
-                    <td>{{ fournisseur.id }}</td>
-                    <td>{{ fournisseur.nomEntreprise }}</td>
-                    <td>{{ fournisseur.numeroSiret }}</td>
-                    <td>{{ fournisseur.adresse }}</td>
-                    <td>{{ fournisseur.tel }}</td>
-                    <td>{{ fournisseur.email }}</td>
-                    <td>
-                        <a href="{{ path('app_admin_fournisseur_show', {'id': fournisseur.id}) }}">show</a>
-                        <a href="{{ path('app_admin_fournisseur_edit', {'id': fournisseur.id}) }}">edit</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="10">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+            <a class="btn-all" href="{{ path('app_admin_fournisseur_new') }}">Create new</a></button>
+            <div class="header_fixed mt-4 mb-4">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>NomEntreprise</th>
+                        <th>NumeroSiret</th>
+                        <th>Adresse</th>
+                        <th>Tel</th>
+                        <th>Email</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for fournisseur in fournisseurs %}
+                    <tr>
+                        <td>{{ fournisseur.id }}</td>
+                        <td>{{ fournisseur.nomEntreprise }}</td>
+                        <td>{{ fournisseur.numeroSiret }}</td>
+                        <td>{{ fournisseur.adresse }}</td>
+                        <td>{{ fournisseur.tel }}</td>
+                        <td>{{ fournisseur.email }}</td>
+                        <td>
+                            <a class="btn-all" href="{{ path('app_admin_fournisseur_show', {'id': fournisseur.id}) }}">show</a>
+                            <a class="btn-all" href="{{ path('app_admin_fournisseur_edit', {'id': fournisseur.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="10">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
 {% endblock %}

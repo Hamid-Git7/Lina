@@ -5,42 +5,43 @@
 {% block body %}
     <div class="container mt-4">
 
-        <h1>Retoucheurs</h1>
+        <h1>Retoucheur</h1>
 
-    <button type="button" class="btn btn-dark"><a href="{{ path('app_admin_retoucheur_new') }}">Create new</a></button>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>NomEntreprise</th>
-                    <th>NumeroSiret</th>
-                    <th>Adresse</th>
-                    <th>Tel</th>
-                    <th>Email</th>
-                    <th>actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for retoucheur in retoucheurs %}
-                <tr class="table-success mt-4">
-                    <td>{{ retoucheur.id }}</td>
-                    <td>{{ retoucheur.nomEntreprise }}</td>
-                    <td>{{ retoucheur.numeroSiret }}</td>
-                    <td>{{ retoucheur.adresse }}</td>
-                    <td>{{ retoucheur.tel }}</td>
-                    <td>{{ retoucheur.email }}</td>
-                    <td>
-                        <a href="{{ path('app_admin_retoucheur_show', {'id': retoucheur.id}) }}">show</a>
-                        <a href="{{ path('app_admin_retoucheur_edit', {'id': retoucheur.id}) }}">edit</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="10">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+    <a class="btn-all" href="{{ path('app_admin_retoucheur_new') }}">Create new</a></button>
+		<div class="header_fixed mt-4 mb-4">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>NomEntreprise</th>
+                        <th>NumeroSiret</th>
+                        <th>Adresse</th>
+                        <th>Tel</th>
+                        <th>Email</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for retoucheur in retoucheurs %}
+                    <tr>
+                        <td>{{ retoucheur.id }}</td>
+                        <td>{{ retoucheur.nomEntreprise }}</td>
+                        <td>{{ retoucheur.numeroSiret }}</td>
+                        <td>{{ retoucheur.adresse }}</td>
+                        <td>{{ retoucheur.tel }}</td>
+                        <td>{{ retoucheur.email }}</td>
+                        <td>
+                            <a class="btn-all" href="{{ path('app_admin_retoucheur_show', {'id': retoucheur.id}) }}">show</a>
+                            <a class="btn-all" href="{{ path('app_admin_retoucheur_edit', {'id': retoucheur.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}

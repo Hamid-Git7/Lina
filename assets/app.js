@@ -12,6 +12,7 @@ import './styles/login.scss';
 import './styles/register.scss';
 import './styles/footer.scss';
 import './styles/navbar.scss';
+import './styles/form.scss';
 
 // You can specify wich plugins you need
 import { Tooltip, Toast, Popover } from 'bootstrap';
