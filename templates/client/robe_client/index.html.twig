@@ -3,41 +3,41 @@
 {% block title %}Robe{% endblock %}
 
 {% block body %}
-<div class="container mt-4">
-    <h1>Robes</h1>
-    <div class="header_fixed mt-4 mb-4">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom Robe</th>
-                    <th>Description</th>
-                    <th>Catégotie</th>
-                    <th>Prix/jour €</th>
-                    <th>action</th>
-                </tr>
-            </thead>
 
-            <tbody>
+    <section class="trending-product" id="trending">
+        <div class="center-text">
+            <h2>Nos Robes <span></span></h2>
+        </div>
+
+        <div class="products">
             {% for robe in robes %}
-            <tbody>
-                <tr>
-                    <td>{{ robe.nomRobe }}</td>
-                    <td>{{ robe.description }}</td>
-                    <td>{{ robe.categorie }}
-                    <td>{{ robe.prix }}</td>
-                    <td>
-                        <a class="btn-all" href="{{ path('app_client_robe_show', {'id': robe.id}) }}">show</a>
-                    </td>
-                </tr>
-        </tbody>
-            {% else %}
-                <tr>
-                    <td colspan="8">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
+            <div class="row">
+                <img src="{{ vich_uploader_asset(robe, 'imageFile') }}" alt="">
+                <div class="product-text">
+                    <h5>Promo</h5>
+                </div>
+                <div class="heart-icon">
+                    <i class='bx bx-heart'></i>
+                </div>
+                <div class="ratting">
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </div>
+
+                <div class="price">
+                    <a href="{{ path('app_client_robe_show', {'id': robe.id}) }}"><h4>{{ robe.nomRobe }}</h4></a>
+                    <p>{{ robe.prix }} €</p>
+                </div>
+            </div>
+        {% endfor %}
+
+        </div>
+
+    </section>
+
+
 
 {% endblock %}

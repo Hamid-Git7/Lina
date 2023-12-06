@@ -15,4 +15,3 @@ import './styles/navbar.scss';
 import './styles/form.scss';
 
 // You can specify wich plugins you need
-import { Tooltip, Toast, Popover } from 'bootstrap';

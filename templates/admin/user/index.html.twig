@@ -7,14 +7,13 @@
 	<section id="caftan">
 		<h1 class="user" >Utilisateurs</h1>
 
-		<a class="btn-all" href="{{ path('app_admin_user_new') }}">Créer</a></button>
-		<div class="header_fixed mt-4 mb-4">
+		<div class="header_fixed"> 
 			<table>
 				<thead>
 					<tr>
 						<th>Id</th>
-						<th>Email</th>
-						<th>Roles</th>
+						<th>Email</th> 
+						<th>Rôle</th>
 						<th>actions</th>
 					</tr>
 				</thead>
@@ -26,7 +25,7 @@
 							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 							<td>
 								<a class="btn-all" href="{{ path('app_admin_user_show', {'id': user.id}) }}">show</a>
-								<a class="btn-all" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">edit</a>
+								<a class="btn-all" style="margin-top: 10px; display: inline-block;" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">edit</a>
 							</td>
 						</tr>
 					{% else %}
@@ -35,7 +34,8 @@
 						</tr>
 					{% endfor %}
 				</tbody>
-			</table>
+			</table> 
 		</div>
+		<a class="btn-all" href="{{ path('app_admin_user_new') }}" style="margin-top: 20px">Créer</a></button>
 	</section>
 {% endblock %}

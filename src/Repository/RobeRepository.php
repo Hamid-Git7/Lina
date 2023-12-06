@@ -45,6 +45,18 @@ class RobeRepository extends ServiceEntityRepository
         ;
     }
 
+    public function calculateRobePriceTotal()
+    {
+        $robes = $this->findAll();
+        $totalPrice = 0;
+
+        foreach ($robes as $robe) {
+            $totalPrice += $robe->getPrix();
+        }
+
+        return $totalPrice;
+    }
+
     // public function findFournisseur(): ?Robe
     // {
     //     return $this->createQueryBuilder('r')

@@ -1,17 +1,15 @@
 <div class="container-form">
 
 <div class="form-container">
-{{ form_start(form) }}
-<div class="form-row">
-{{form_label(form.email)}}
-{{form_widget(form.email)}}
-</div>
-<div class="form-row">
-
-{{form_widget(form.password)}}
-</div>
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+    {{ form_start(form) }}
+    <h1>Créer un utilisateur</h1>
+        <div class="form-row">
+            {{form_label(form.email)}}
+            {{form_widget(form.email)}}
+            {{form_widget(form.password)}}
+        </div>
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
 </div>
 </div>
 

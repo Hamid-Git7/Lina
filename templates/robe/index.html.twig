@@ -3,13 +3,14 @@
 {% block title %}Robe{% endblock %}
 
 {% block body %}
-<div class="container mt-4">
-    <h1>Robes</h1>
-    <a class="btn-all" href="{{ path('app_admin_robe_new') }}">Create new</a></button>
-	<div class="header_fixed mt-4 mb-4">
-        <table>
-            <thead>
-                <tr>
+
+<section id="caftan">
+		<h1 class="user" >Utilisateurs</h1>
+
+		<div class="header_fixed"> 
+			<table>
+				<thead>
+					<tr>
                     <th>Id</th>
                     <th>Nom Robe</th>
                     <th>Description</th>
@@ -18,9 +19,9 @@
                     <th>Fournisseur</th>
                     <th>actions</th>
                 </tr>
-            </thead>
-            <tbody>
-                {% for robe in robes %}
+				</thead>
+				<tbody>
+				{% for robe in robes %}
                     <tr>
                         <td>{{ robe.id }}</td>
                         <td>{{ robe.nomRobe }}</td>
@@ -28,7 +29,7 @@
                         <td>{{ robe.categorie }}
                         <td>{{ robe.prix }}</td>
                         <td>{{ robe.fournisseur }}</td>
-                        <td>
+                        <td class="action" >
                             <a class="btn-all" href="{{ path('app_admin_robe_show', {'id': robe.id}) }}">show</a>
                             <a class="btn-all" href="{{ path('app_admin_robe_edit', {'id': robe.id}) }}">edit</a>
                         </td>
@@ -38,12 +39,10 @@
                         <td colspan="8">no records found</td>
                     </tr>
                 {% endfor %}
-            </tbody>
-        </table>
-        <div class="navigation d-flex justify-content-center">
-            {{ knp_pagination_render(robes) }}
-        </div>
-    </div>
-</div>
+				</tbody>
+			</table> 
+		</div>
+		<a class="btn-all"  href="{{ path('app_admin_robe_new') }}" style="margin-top: 20px">Créer</a></button>
+	</section>
 
 {% endblock %}

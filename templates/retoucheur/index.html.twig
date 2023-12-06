@@ -3,7 +3,7 @@
 {% block title %}Retoucheur index{% endblock %}
 
 {% block body %}
-    <div class="container mt-4">
+	<section id="caftan">
 
         <h1>Retoucheur</h1>
 
@@ -30,7 +30,7 @@
                         <td>{{ retoucheur.adresse }}</td>
                         <td>{{ retoucheur.tel }}</td>
                         <td>{{ retoucheur.email }}</td>
-                        <td>
+                        <td class="action" >
                             <a class="btn-all" href="{{ path('app_admin_retoucheur_show', {'id': retoucheur.id}) }}">show</a>
                             <a class="btn-all" href="{{ path('app_admin_retoucheur_edit', {'id': retoucheur.id}) }}">edit</a>
                         </td>
@@ -43,5 +43,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </section>
 {% endblock %}

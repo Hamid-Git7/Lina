@@ -1,33 +1,27 @@
-        <div class="container">
-    <div class="form-container">
+        <div class="container-form">
+        <div class="form-container">
+        <h1>Créer une robe</h1>
         {{ form_start(form) }}
 
         <div class="form-row">
             {{ form_label(form.nomRobe) }}
             {{ form_widget(form.nomRobe) }}
-        </div>
-
-        <div class="form-row">
-            {{ form_label(form.description) }}
-            {{ form_widget(form.description) }}
-        </div>
-
-        <div class="form-row">
             {{ form_label(form.prix) }}
             {{ form_widget(form.prix) }}
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}</br>
+            {{ form_label(form.fournisseur) }}
+            {{ form_widget(form.fournisseur) }}
+            {{ form_label(form.categorie) }}
+            {{ form_widget(form.categorie) }}
+            {{ form_label(form.taille) }}
+            {{ form_widget(form.taille) }}</br>
+            {{ form_label(form.couleurs) }}
+            {{ form_widget(form.couleurs) }}
+            {{ form_label(form.imageFile) }}
+            {{ form_widget(form.imageFile) }}
+
         </div>
-
-        {# <div class="form-row">
-            {{ form_label(form.imageName) }}
-            {{ form_widget(form.imageName) }}
-        </div>
-
-        <div class="form-row">
-            {{ form_label(form.imageName) }}
-            {{ form_widget(form.imageName) }}
-        </div> #}
-
-
 
         <div class="button-container">
         <button class="btn">{{ button_label|default('Save') }}</button>

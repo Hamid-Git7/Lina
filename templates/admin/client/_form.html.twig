@@ -1,4 +1,20 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container-form">
+<div class="form-container">
+    {{ form_start(form) }}
+        <div class="form-row">
+        <h1>Créer un client</h1>
+        {{form_label(form.nom)}}
+        {{ form_widget(form.nom) }}
+        {{form_label(form.prenom)}}
+        {{ form_widget(form.prenom) }}
+        {{form_label(form.tel)}}
+        {{ form_widget(form.tel) }}
+        {{form_label(form.user.email)}}
+        {{ form_widget(form.user.email) }}
+        {{ form_widget(form.user.password) }}
+        {# {{ form_widget(form.user.confirmedPassword) }} #}
+        </div>
+        <button class="btn-action">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+</div>
+</div>

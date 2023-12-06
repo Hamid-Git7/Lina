@@ -35,8 +35,9 @@ class LocationController extends AbstractController
         $form = $this->createForm(LocationType::class, $location);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) { 
-            
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager->persist($location);
             $entityManager->flush();
 
@@ -62,7 +63,9 @@ class LocationController extends AbstractController
     {
         $form = $this->createForm(LocationType::class, $location);
         $form->handleRequest($request);
-
+        // 1) Créer une fonction calculate robePriceTotal qui va calculer le prix total des robes en prenant en parametre la collection de robes, il faudra parcourir la collection 
+        /*robes tu la crée dans le repository de robe*/
+        // 2) Enlever le input prixTotal et afficher à la place le robePriceTotal en appelant la fonction
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
@@ -78,7 +81,7 @@ class LocationController extends AbstractController
     #[Route('/{id}', name: 'app_admin_location_delete', methods: ['POST'])]
     public function delete(Request $request, Location $location, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$location->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $location->getId(), $request->request->get('_token'))) {
             $entityManager->remove($location);
             $entityManager->flush();
         }

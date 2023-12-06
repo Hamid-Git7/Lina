@@ -23,10 +23,10 @@ class Retouche
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\GreaterThan(propertyPath: 'dateRetouche')]
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateRetouche = null;
 
+    #[Assert\GreaterThan(propertyPath: 'dateRetouche')]
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateFinRetouche = null;
 

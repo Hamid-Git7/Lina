@@ -37,10 +37,10 @@ class UserType extends AbstractType
                 'second_options' => ['label' => 'Confirmer le mot de passe'],
                 'required' => true,
                 'constraints' => [
-                    new Regex([
-                        'pattern' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/',
-                        'message' => 'Le mot de passe doit contenir au moins 8 caractères, dont une lettre minuscule, une lettre majuscule et un chiffre.',
-                    ]),
+                    // new Regex([
+                    //     'pattern' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/',
+                    //     'message' => 'Le mot de passe doit contenir au moins 8 caractères, dont une lettre minuscule, une lettre majuscule et un chiffre.',
+                    // ]),
                 ],
             ])
             ->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) use ($hasher) {

@@ -1,20 +1,12 @@
-@import "~bootstrap/scss/bootstrap";
+// @import "~bootstrap/scss/bootstrap";
 
 a{
     text-decoration: none;
     color: #000;
-}
 
-h1 {
-    text-align: center;
-    margin: 0 auto;  
 }
 
 #caftan {
-    // background: url("images/Image01.png");
-    background-position: center;
-    background-size: cover;
-    height: 200vh;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -23,7 +15,7 @@ h1 {
 }
 
 .btn-all {
-    color: #e29d08;
+    color: #0c0c0c;
     font-size: 14px;
     border: 1px solid #000;
     border-radius: 5px;
@@ -39,16 +31,18 @@ table {
 
 .header_fixed {
 
-    max-height: 100vh;
-    width: 800px;
+    width: 100%;
     overflow: auto;
     border: 1px solid #dddddd;
+    border-collapse: collapse;
+    
+
 }
 
 .header_fixed thead th {
     position: sticky;
     top: 0;
-    background-color: #e29d08;
+    background-color: #e0e00a5e;
     color: #000;
     font-size: 15px;
 }
@@ -67,4 +61,110 @@ td button {
     border-radius: 20px;
     background-color: black;
     color: #e6e7e8;
+}
+
+.action {
+    width: 200px;
+}
+
+.image {
+    background: url("images/Image01.png");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: -145px;
+    bottom: -145px;
+    width: 40%;
+}
+
+section {
+    padding: 5% 10%;
+}
+
+.main-home {
+    // width: 45%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+}
+
+.center-text h2{
+    color: #111;
+    font-size: 28px;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.center-text span{
+    color: #EE1C47;
+}
+.products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    gap: 2rem;
+}
+.row{
+    position: relative;
+    transition: all .40s;
+}
+.row img{
+    max-width: 100%;
+    height: auto;
+    transition: all .40s;
+}
+.row img:hover{
+    transform: scale(0.9);
+}
+.product-text h5{
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: #27b737;
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+
+
+.heart-icon{
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+}
+.heart-icon:hover{
+    color: #EE1C47;
+}
+.ratting i{
+    color: #FF8C00;
+    font-size: 18px;
+}
+.price h4{
+    color: #111;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+.price p{
+    color: #151515;
+    font-size: 14px;
+    font-weight: 600;
+}
+.client-reviews{
+    background-color: #F3F4F6;
+}
+
+@media screen and (max-width: 680px) {
+    .header_fixed {
+        margin-left: -15px;
+            width: 430px;
+            margin-top: 30px;
+    }
+  
 }
