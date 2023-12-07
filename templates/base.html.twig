@@ -74,71 +74,6 @@
     	</header>
 
 
-		{# <div class="menu">
-			<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" id="nav">
-				<div class="container-fluid">
-					<a class="navbar-brand" href="{{ path('app_home') }}">Lina K. Collection</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarColor01">
-						<ul class="navbar-nav me-auto">
-							{% if is_granted('ROLE_ADMIN') %}
-								<li class="nav-item">
-									<a class="nav-link active" href="{{ path('app_admin_user_index') }}">Utilisateur
-										<span class="visually-hidden">(current)</span>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_admin_client_index') }}">Client</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_admin_robe_index') }}">Robe</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_admin_location_index') }}">Location</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_adminfo_urnisseur_index') }}">Fournisseur</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_admin_retoucheur_index') }}">Retoucheur</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_admin_retouche_index') }}">Retouche</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_admin_categorie_index') }}">Categorie</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_admin_couleur_index') }}">Couleur</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_admin_taille_index') }}">Taille</a>
-								</li>
-							{% else %}
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_client_robe_index') }}">Robe</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{ path('app_location_index') }}">Location</a>
-								</li>
-							{% endif %}
-						</ul>
-                            {% if app.user %}
-                            <div class="nav-user">
-								{{ app.user.userIdentifier }} <a class="btn-nav" href="{{ path('app_logout') }}">Deconnexion</a>
-                            </div>
-                            {% else %}
-                        <div>
-							<a class="btn-nav" href="{{ path('app_register') }}">Inscription</a>
-                            <a class="btn-nav" href="{{ path('app_login') }}">Connexion</a>
-                        </div>
-                        {% endif %}
-					</div>
-				</div>
-			</nav>
-		</div> #}
     {% endblock %}
     </head>
 
@@ -157,6 +92,7 @@
 						<li><a href="https://www.tiktok.com/@linak.collection"><i class="bx bxl-tiktok"></i></a></li>
 						<li><a href="#"><i class="bx bxl-gmail"></i></a></li>
 					</ul>
+						<a class="mentions" href="{{ path('app_mentions_legales') }}">Mentions légales</a>
 				</div>
 				<div class="footer-bottom">
 					<p>copyright &copy;2023 Lina K. Collection. designed by <span>Add.</span></p>

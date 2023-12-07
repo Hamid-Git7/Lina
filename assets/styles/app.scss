@@ -1,4 +1,4 @@
-// @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
 
 a{
     text-decoration: none;
@@ -166,5 +166,35 @@ section {
             width: 430px;
             margin-top: 30px;
     }
-  
+}
+
+.legales {
+    text-align: center;
+    margin: 150px;
+    font-size: 14px;
+}
+
+.titlementions{
+    font-size: 35px;
+    padding: 30px;
+    color: #e29d08;
+}
+
+.mentionsLégales{
+    text-align: center;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.paginat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.paginat li {
+    margin: 0 1px;
 }
